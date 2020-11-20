@@ -4,7 +4,7 @@ function App() {
   return (
     <div className='App'>
       <div className='container'>
-        <h1>4.1 Test-Driven Development & Test Scenarios Exercise</h1>
+        <h1>Create react app setup</h1>
       </div>
     </div>
   );
