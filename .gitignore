@@ -23,3 +23,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar.readonly&response_type=code&client_id=92743438402-qilu9arnq0c14aorbst0t7837jc3s3n0.apps.googleusercontent.com&redirect_uri=https://mirjsolution.github.io/meet-app
+
+# https://mirjsolution.github.io/meet-app/?code=4%2F0AY0e-g51hdcbWxQxrHOUnVfa1mGgAfdV0z0_GQGVqDuQ64ZrLB6nm3lKsXCP8eRbZUuJzg&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar.readonly
+
+# {"access_token":"ya29.a0AfH6SMBUaIckGSDfR_RooFa9n_8mqeZmOUVa9FDH3mgncH0Go2kEmWIJWeoqbGfsopNgIbGMUGGlzjRbmxBxuHOa1DpyxsuwxY8-ttOhvkhJc9KJkIfQQMEwo1zxUD_3qjZNB8DI28iiAZcsdO04FpbuWZA8ahYuWPjxjLD3vyE","refresh_token":"1//0dX2C81SYSCZYCgYIARAAGA0SNwF-L9IrK0DlaMBeutuCp6fi1BmNVm6JzI8cRSRl6XSbBGYy3G-QGc_tC7yRm0Yu0hYEWbKN_SY","scope":"https://www.googleapis.com/auth/calendar.readonly","token_type":"Bearer","expiry_date":1605968106070}
