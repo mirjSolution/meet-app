@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
+import EventList from './EventList';
+import CitySearch from './CitySearch';
+import NumberOfEvents from './NumberOfEvents';
 
-function App() {
-  return (
-    <div className='App'>
-      <div className='container'>
-        <h1>Create react app setup</h1>
+class App extends Component {
+  render() {
+    return (
+      <div className='App'>
+        <CitySearch />
+        <NumberOfEvents />
+        <EventList />
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
