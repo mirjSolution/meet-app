@@ -60,10 +60,15 @@ describe('<Event />, component', () => {
   test('render show event-details', () => {
     EventWrapper.setState({ showhideDetails: true });
     EventWrapper.find('.show-hide-btn').simulate('click');
+    const eventDetails = EventWrapper.find('.event-details');
+    expect(eventDetails).toHaveLength(1);
   });
 
   test('render hide event-details', () => {
     EventWrapper.setState({ showhideDetails: false });
     EventWrapper.find('.show-hide-btn').simulate('click');
+    const eventDetails = EventWrapper.find('.event-details');
+    expect(eventDetails).toHaveLength(0);
   });
+  test.todo('Finish my unit tests for my Event component.');
 });
