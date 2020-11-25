@@ -15,12 +15,13 @@ class App extends Component {
   updateEvents = (location, eventCount) => {
     let locationEvents;
     getEvents().then((events) => {
-      if (location === 'all') {
+      if (location === 'all' && eventCount === 0) {
         locationEvents = events;
-      } else {
-        locationEvents = events
-          .slice(0, eventCount)
-          .filter((event) => event.location === location);
+      } else if (location !== 'all' && eventCount === 0) {
+        locationEvents = events.filter((event) => event.location === location);
+        console.log(eventCount);
+      } else if (location === '' && eventCount > 0) {
+        locationEvents = events.slice(0, eventCount);
       }
       this.setState({
         events: locationEvents,
