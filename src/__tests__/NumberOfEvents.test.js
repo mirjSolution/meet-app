@@ -5,17 +5,17 @@ import NumberOfEvents from '../NumberOfEvents';
 describe('<NumberOfEvents /> component', () => {
   let NumberOfEventsWrapper;
   beforeAll(() => {
-    NumberOfEventsWrapper = shallow(<NumberOfEvents />);
+    NumberOfEventsWrapper = shallow(<NumberOfEvents updateEvents={() => {}} />);
   });
 
   test('render text input', () => {
     expect(NumberOfEventsWrapper.find('.event-number-input')).toHaveLength(1);
   });
 
-  test('check input default value is equal to 5', () => {
+  test('check input default value is equal to undefined', () => {
     expect(
       NumberOfEventsWrapper.find('.event-number-input').at(0).props().value
-    ).toEqual(5);
+    ).toEqual(undefined);
   });
 
   test('check placeholder to be Enter number of events', () => {
