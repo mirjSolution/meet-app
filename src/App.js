@@ -3,6 +3,8 @@ import './App.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
+import { InfoAlert } from './Alert';
+
 import { getEvents, extractLocations } from './api';
 
 class App extends Component {
@@ -20,7 +22,6 @@ class App extends Component {
         locationEvents = events;
       } else if (location !== 'all' && eventCount === 0) {
         locationEvents = events.filter((event) => event.location === location);
-        console.log(eventCount);
       } else if (location === '' && eventCount > 0) {
         locationEvents = events.slice(0, eventCount);
       }
@@ -33,6 +34,17 @@ class App extends Component {
 
   componentDidMount() {
     this.mounted = true;
+    // Try to load localEvent
+    if (!navigator.onLine) {
+      this.setState({
+        infoAlert:
+          'You are not connected from internet(data may not be up to date)',
+      });
+    } else {
+      this.setState({
+        infoAlert: '',
+      });
+    }
     getEvents().then((events) => {
       if (this.mounted) {
         this.setState({
@@ -59,6 +71,7 @@ class App extends Component {
           eventCount={this.state.eventCount}
           updateEvents={this.updateEvents}
         />
+        <InfoAlert text={this.state.infoAlert} />
         <EventList events={this.state.events} />
       </div>
     );

@@ -16,11 +16,6 @@ export const extractLocations = (events) => {
   var locations = [...new Set(extractLocations)];
   return locations;
 };
-export const extractEvents = (events) => {
-  var extractEvents = events.map((event) => event);
-  var events1 = [...new Set(extractEvents)];
-  return events1;
-};
 
 export const getAccessToken = async () => {
   const accessToken = localStorage.getItem('access_token');
@@ -56,6 +51,15 @@ const checkToken = async (accessToken) => {
 export const getEvents = async () => {
   NProgress.start();
 
+  if (
+    !navigator.onLine &&
+    !window.location.href.startsWith('http://localhost')
+  ) {
+    const events = localStorage.getItem('lastEvents');
+    NProgress.done();
+    return JSON.parse(events).events;
+  }
+
   if (window.location.href.startsWith('http://localhost')) {
     NProgress.done();
     return mockData;
@@ -67,11 +71,13 @@ export const getEvents = async () => {
     removeQuery();
     const url = `https://zqxux34dr8.execute-api.ca-central-1.amazonaws.com/dev/api/get-events/${token}`;
     const result = await axios.get(url);
+
     if (result.data) {
       var locations = extractLocations(result.data.events);
       localStorage.setItem('lastEvents', JSON.stringify(result.data));
       localStorage.setItem('locations', JSON.stringify(locations));
     }
+
     NProgress.done();
     return result.data.events;
   }
