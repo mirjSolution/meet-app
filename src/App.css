@@ -236,4 +236,7 @@ input[type='number'] {
   .CitySearch {
     margin-top: 60px;
   }
+  .recharts-surface {
+    font-size: 12px;
+  }
 }
