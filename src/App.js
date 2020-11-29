@@ -103,28 +103,38 @@ class App extends Component {
         <InfoAlert text={this.state.infoAlert} />
 
         <div className='data-vis-wrapper'>
-          <EventGenre events={this.state.events} />
-          <ResponsiveContainer height={400}>
-            <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 0 }}>
-              <CartesianGrid />
-              <XAxis type='category' dataKey='city' name='city' />
-              <YAxis
-                allowDecimals={false}
-                type='number'
-                dataKey='number'
-                name='number of events'
-              />
-              <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-              <Scatter
-                data={
-                  !window.location.href.startsWith('http://localhost')
-                    ? this.getData()
-                    : data
-                }
-                fill='#8884d8'
-              />
-            </ScatterChart>
-          </ResponsiveContainer>
+          <div className='data-chart'>
+            <div className='data-chart-box'>
+              <EventGenre events={this.state.events} />
+            </div>
+          </div>
+          <div className='data-chart'>
+            <div className='data-chart-box'>
+              <ResponsiveContainer width='100%' height={400}>
+                <ScatterChart
+                  margin={{ top: 30, right: 30, left: 0, bottom: 5 }}
+                >
+                  <CartesianGrid />
+                  <XAxis type='category' dataKey='city' name='city' />
+                  <YAxis
+                    allowDecimals={false}
+                    type='number'
+                    dataKey='number'
+                    name='number of events'
+                  />
+                  <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+                  <Scatter
+                    data={
+                      !window.location.href.startsWith('http://localhost')
+                        ? this.getData()
+                        : data
+                    }
+                    fill='#8884d8'
+                  />
+                </ScatterChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
         </div>
         <EventList events={this.state.events} />
       </div>
