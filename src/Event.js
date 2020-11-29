@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Moment from 'react-moment';
+import moment from 'moment';
 
 class Event extends Component {
   state = {
@@ -18,7 +20,10 @@ class Event extends Component {
     return (
       <div className='event-container'>
         <h1 className='name'>{event.summary}</h1>
-        <p>{event.start ? event.start.dateTime : ''}</p>
+        <Moment format='LLLL'>
+          {moment.utc(event.start ? event.start.dateTime : '')}
+        </Moment>
+
         <p className='locations'>{event.location}</p>
 
         {this.state.showHideDetails && (

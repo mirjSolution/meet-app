@@ -21,11 +21,11 @@ const EventGenre = ({ events }) => {
       const value = summary.filter((summary) =>
         summary.eventSummary.split(' ').includes(name)
       ).length;
-
+      // Filter name and genre again here
       return { name, value };
     });
 
-    return data;
+    return data.filter((data) => data.value >= 1);
   };
 
   return (
