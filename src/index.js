@@ -20,6 +20,6 @@ ReactDOM.render(
 reportWebVitals();
 // serviceWorker.unregister();
 serviceWorker.register();
-atatus.config('09c879730ef74076b38bef72a6b338f4').install();
+
 // notify();
 // notify(new Error('Test Atatus Setup'));
